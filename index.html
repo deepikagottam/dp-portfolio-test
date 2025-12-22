@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deepika Gottam | Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --white: #f9f9fb;
+      --lavender: #c7b9ff;
+      --lavender-soft: rgba(199,185,255,0.25);
+      --glass: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(199,185,255,0.15), transparent 60%),
+                  radial-gradient(800px 400px at 90% 10%, rgba(199,185,255,0.12), transparent 55%),
+                  var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      max-width: 1100px;
+      margin: auto;
+      padding: 5rem 2rem 3rem;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, var(--white), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      max-width: 720px;
+      margin-top: 1rem;
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav button {
+      background: var(--glass);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      color: var(--white);
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    nav button:hover,
+    nav button.active {
+      border-color: var(--lavender);
+      box-shadow: 0 0 0 4px var(--lavender-soft);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    section {
+      display: none;
+      animation: fade 0.45s ease;
+    }
+
+    section.active { display: block; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(199,185,255,0.35), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      border-color: var(--lavender);
+      box-shadow: 0 20px 60px rgba(199,185,255,0.15);
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    .card h3 {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.8rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      color: var(--lavender);
+      font-size: 0.85rem;
+      transition: gap 0.25s ease;
+    }
+
+    .project-link:hover { gap: 0.7rem; }
+
+    ul { padding-left: 1.1rem; }
+    ul li { margin-bottom: 0.4rem; }
+
+    footer {
+      max-width: 1100px;
+      margin: auto;
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Deepika Gottam</h1>
+  <p>
+    Data-driven Information Systems student focused on analytics, machine learning, and scalable AI-powered solutions.
+    Passionate about turning complex data into meaningful impact.
+  </p>
+
+  <nav>
+    <button class="active" onclick="showSection('about')">About</button>
+    <button onclick="showSection('education')">Education</button>
+    <button onclick="showSection('experience')">Experience</button>
+    <button onclick="showSection('projects')">Projects</button>
+    <button onclick="showSection('leadership')">Leadership</button>
+  </nav>
+</header>
+
+<main>
+  <section id="about" class="active">
+    <div class="card">
+      <h3>About</h3>
+      <p>
+        My work spans data analytics, machine learning, and system design. I enjoy building elegant, scalable solutions — from
+        analytical dashboards to deployed ML systems — with a strong emphasis on clarity, usability, and impact.
+      </p>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="grid">
+      <div class="card">
+        <h3>Binghamton University, SUNY</h3>
+        <div class="meta">B.S. Information Systems · Expected May 2026</div>
+        <p>Data Analytics, Data Mining, AI-Driven Decision Support, IS Security</p>
+      </div>
+
+      <div class="card">
+        <h3>VIT Bangalore</h3>
+        <div class="meta">Postgraduate Program · 2023 – 2024</div>
+        <p>Machine Learning, Deep Learning, Big Data Analytics</p>
+      </div>
+
+      <div class="card">
+        <h3>New Shores International College</h3>
+        <div class="meta">BCA · 2020 – 2023</div>
+        <p>DSA, DBMS, Networks, Software Engineering, Web Programming</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="card">
+      <h3>Research Intern — Boundless Impact Research & Analytics</h3>
+      <div class="meta">Remote · Sep 2025 – Present</div>
+      <ul>
+        <li>Prepared and structured datasets for impact investment research</li>
+        <li>Built analytical dashboards and visual reports</li>
+        <li>Integrated quantitative insights into data-driven proposals</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="grid">
+      <div class="card">
+        <h3>HR Analytics Dashboard</h3>
+        <div class="meta">Power BI · Analytics</div>
+        <p>Interactive HR dashboard analyzing attrition, salary trends, and workforce demographics.</p>
+        <a class="project-link" href="#">GitHub →</a>
+      </div>
+
+      <div class="card">
+        <h3>Loan Approval Prediction</h3>
+        <div class="meta">ML · REST API</div>
+        <p>Ensemble ML system for automated credit risk assessment deployed via API.</p>
+        <a class="project-link" href="#">GitHub →</a>
+      </div>
+
+      <div class="card">
+        <h3>Inventory Management System</h3>
+        <div class="meta">Django · Web App</div>
+        <p>Inventory platform with audit trails and version tracking.</p>
+        <a class="project-link" href="#">GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="leadership">
+    <div class="card">
+      <h3>Leadership Volunteer — International Student Orientation</h3>
+      <div class="meta">2025</div>
+      <p>Supported incoming international students and facilitated engagement during orientation programs.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2025 Deepika Gottam · Designed & Built with HTML, CSS & JavaScript
+</footer>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
