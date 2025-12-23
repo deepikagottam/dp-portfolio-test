@@ -348,6 +348,7 @@ main {
   display: grid;
   gap: 8px;
   color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .project-card h4 {
