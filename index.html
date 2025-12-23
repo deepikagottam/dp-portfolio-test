@@ -4,280 +4,332 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deepika Gottam | Portfolio</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --white: #f9f9fb;
-      --lavender: #c7b9ff;
-      --lavender-soft: rgba(199,185,255,0.25);
-      --glass: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.12);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(199,185,255,0.15), transparent 60%),
-                  radial-gradient(800px 400px at 90% 10%, rgba(199,185,255,0.12), transparent 55%),
-                  var(--bg);
-      color: var(--white);
-      overflow-x: hidden;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    header {
-      max-width: 1100px;
-      margin: auto;
-      padding: 5rem 2rem 3rem;
-    }
-
-    header h1 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      background: linear-gradient(120deg, var(--white), var(--lavender));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    header p {
-      max-width: 720px;
-      margin-top: 1rem;
-      color: rgba(255,255,255,0.75);
-      font-size: 1.05rem;
-    }
-
-    nav {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2.5rem;
-      flex-wrap: wrap;
-    }
-
-    nav button {
-      background: var(--glass);
-      backdrop-filter: blur(14px);
-      border: 1px solid var(--border);
-      color: var(--white);
-      padding: 0.55rem 1.1rem;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-    }
-
-    nav button:hover,
-    nav button.active {
-      border-color: var(--lavender);
-      box-shadow: 0 0 0 4px var(--lavender-soft);
-    }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem;
-    }
-
-    section {
-      display: none;
-      animation: fade 0.45s ease;
-    }
-
-    section.active { display: block; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 1.8rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent, rgba(199,185,255,0.35), transparent);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px) scale(1.01);
-      border-color: var(--lavender);
-      box-shadow: 0 20px 60px rgba(199,185,255,0.15);
-    }
-
-    .card:hover::before { opacity: 1; }
-
-    .card h3 {
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    .meta {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 0.8rem;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: 1rem;
-      color: var(--lavender);
-      font-size: 0.85rem;
-      transition: gap 0.25s ease;
-    }
-
-    .project-link:hover { gap: 0.7rem; }
-
-    ul { padding-left: 1.1rem; }
-    ul li { margin-bottom: 0.4rem; }
-
-    footer {
-      max-width: 1100px;
-      margin: auto;
-      padding: 3rem 2rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.55);
-    }
-
-    @keyframes fade {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="bg-canvas"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-motion"></div>
 
-<header>
-  <h1>Deepika Gottam</h1>
-  <p>
-    Data-driven Information Systems student focused on analytics, machine learning, and scalable AI-powered solutions.
-    Passionate about turning complex data into meaningful impact.
-  </p>
-
-  <nav>
-    <button class="active" onclick="showSection('about')">About</button>
-    <button onclick="showSection('education')">Education</button>
-    <button onclick="showSection('experience')">Experience</button>
-    <button onclick="showSection('projects')">Projects</button>
-    <button onclick="showSection('leadership')">Leadership</button>
-  </nav>
-</header>
-
-<main>
-  <section id="about" class="active">
-    <div class="card">
-      <h3>About</h3>
-      <p>
-        My work spans data analytics, machine learning, and system design. I enjoy building elegant, scalable solutions — from
-        analytical dashboards to deployed ML systems — with a strong emphasis on clarity, usability, and impact.
-      </p>
+  <header class="topbar">
+    <div class="logo-mark" aria-hidden="true"></div>
+    <div class="identity">
+      <span class="eyebrow">Information Systems · Data & AI</span>
+      <h1>Deepika Gottam</h1>
     </div>
-  </section>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+    </nav>
+    <div class="contact-meta">
+      <a href="mailto:dgottam@binghamton.edu">dgottam@binghamton.edu</a>
+      <span>·</span>
+      <a href="https://www.linkedin.com/in/deepika-gottam" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </header>
 
-  <section id="education">
-    <div class="grid">
-      <div class="card">
-        <h3>Binghamton University, SUNY</h3>
-        <div class="meta">B.S. Information Systems · Expected May 2026</div>
-        <p>Data Analytics, Data Mining, AI-Driven Decision Support, IS Security</p>
+  <main>
+    <section class="intro-screen" id="intro">
+      <div class="intro-inner">
+        <p class="intro-title">Deepika Gottam</p>
+        <h1>Information Systems · Data & AI</h1>
+        <p class="intro-tagline">Designing calm, intuitive systems that turn data into confident decisions.</p>
+        <a class="scroll-cue" href="#hero">Scroll to explore ↓</a>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>VIT Bangalore</h3>
-        <div class="meta">Postgraduate Program · 2023 – 2024</div>
-        <p>Machine Learning, Deep Learning, Big Data Analytics</p>
+    <section class="hero" id="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="pill">Binghamton, NY · Building human-centered intelligence</div>
+          <h2>Transforming data into bold, intuitive systems that people trust.</h2>
+          <p>
+            I am an Information Systems student blending analytics, machine learning, and product thinking to craft experiences
+            where insights feel effortless. From research dashboards to API-first ML services, I design with clarity, empathy, and impact.
+          </p>
+          <div class="cta-row">
+            <a class="button primary" href="#projects">View signature work</a>
+            <a class="button ghost" href="mailto:dgottam@binghamton.edu">Start a conversation</a>
+          </div>
+          <div class="meta-row">
+            <span class="chip">Open to data & ML internships</span>
+            <span class="chip">Available May 2026</span>
+            <span class="chip">Remote & On-site</span>
+          </div>
+        </div>
+        <div class="hero-panels">
+          <div class="stat-card">
+            <p class="label">Impact dashboarding</p>
+            <h3>Full-stack analytics stories</h3>
+            <p class="muted">Building Power BI experiences that translate workforce signals into decisions leaders can trust.</p>
+          </div>
+          <div class="stat-grid">
+            <div class="mini-stat">
+              <div class="value">3</div>
+              <p class="muted">Analytics & AI programs across New York and Bangalore</p>
+            </div>
+            <div class="mini-stat">
+              <div class="value">4</div>
+              <p class="muted">ML models in production-grade ensemble for loan approvals</p>
+            </div>
+            <div class="mini-stat">
+              <div class="value">1.2k</div>
+              <p class="muted">Employees monitored through HR attrition dashboards</p>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>New Shores International College</h3>
-        <div class="meta">BCA · 2020 – 2023</div>
-        <p>DSA, DBMS, Networks, Software Engineering, Web Programming</p>
+    <section class="section" id="about">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Story</p>
+          <h3>Designing calm technology for complex data.</h3>
+        </div>
+        <p class="muted">I thrive at the intersection of data science and user experience—curating pipelines, models, and interfaces so people can make confident, elegant decisions.</p>
+      </div>
+      <div class="about-grid">
+        <div class="panel">
+          <h4>What drives me</h4>
+          <p>Turning raw datasets into narratives that spark action, while keeping ethics, accessibility, and clarity at the center.</p>
+          <ul>
+            <li>Shape reliable pipelines: from data cleaning to reproducible analytics.</li>
+            <li>Prototype fast, iterate visually, and measure impact with the end user present.</li>
+            <li>Communicate insights with storytelling that balances rigor and empathy.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Domains I love</h4>
+          <div class="tag-cloud">
+            <span>Analytics dashboards</span>
+            <span>Responsible AI</span>
+            <span>Data APIs</span>
+            <span>Human-centered tooling</span>
+            <span>Product instrumentation</span>
+            <span>Research synthesis</span>
+          </div>
+        </div>
+        <div class="panel contact">
+          <h4>Connect</h4>
+          <div class="contact-grid">
+            <div>
+              <p class="label">Email</p>
+              <a href="mailto:dgottam@binghamton.edu">dgottam@binghamton.edu</a>
+            </div>
+            <div>
+              <p class="label">Phone</p>
+              <a href="tel:+16073438056">(607) 343-8056</a>
+            </div>
+            <div>
+              <p class="label">LinkedIn</p>
+              <a href="https://www.linkedin.com/in/deepika-gottam" target="_blank" rel="noreferrer">/in/deepika-gottam</a>
+            </div>
+            <div>
+              <p class="label">Location</p>
+              <span>Binghamton, NY · Remote friendly</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Experience</p>
+          <h3>Research and analytics that prioritize clarity.</h3>
+        </div>
+        <p class="muted">From building dashboards to synthesizing market signals, I turn fragmented data into a single, persuasive story.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <p class="label">Sep 2025 – Present · Remote</p>
+            <p class="role">Research Intern · Boundless Impact Research & Analytics</p>
+          </div>
+          <ul>
+            <li>Collect, clean, and structure research datasets for impact investment analysis.</li>
+            <li>Create analytical visuals and dashboards that anchor reports and presentations.</li>
+            <li>Integrate quantitative findings into proposals, aligning insights to business priorities.</li>
+            <li>Research market trends to surface patterns across financial mechanisms.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Selected Work</p>
+          <h3>Systems that blend analytics, ML, and experience design.</h3>
+        </div>
+        <p class="muted">Each project fuses storytelling with technical rigor—connecting models, APIs, and visual narratives into cohesive products.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-meta">
+            <p class="label">Power BI · Analytics</p>
+            <p class="duration">Jan 2024 – Feb 2024</p>
+          </div>
+          <h4>HR Analytics Dashboard</h4>
+          <p>Built an interactive Power BI experience revealing attrition, salary hikes, and workforce demographics.</p>
+          <ul>
+            <li>Used DAX to craft KPIs such as attrition rate (0.16), average income (₹36.92k), and total active employees (1,233).</li>
+            <li>Layered cards, heatmaps, and pie charts with slicers for gender and marital status to enable role-based filtering.</li>
+            <li>Helped leadership see workforce trends quickly, driving data-backed HR decisions.</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-meta">
+            <p class="label">Ensemble ML · REST API</p>
+            <p class="duration">Nov 2024 – Dec 2024</p>
+          </div>
+          <h4>Loan Approval Prediction</h4>
+          <p>Designed an ensemble of Logistic Regression, Random Forest, XGBoost, and Neural Networks to automate credit risk assessment.</p>
+          <ul>
+            <li>Led data cleaning, feature engineering, and EDA with Pandas, NumPy, and Scikit-learn to handle missing values and class imbalance.</li>
+            <li>Built visual diagnostics with Matplotlib and Seaborn to evaluate demographic signals and model performance.</li>
+            <li>Deployed the system as a Flask/Django REST API for real-time loan decisioning.</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-meta">
+            <p class="label">Django · Product Systems</p>
+            <p class="duration">Nov 2024 – Dec 2024</p>
+          </div>
+          <h4>Inventory Management Platform</h4>
+          <p>Built a web-based inventory system with audit trails and version tracking for transparency.</p>
+          <ul>
+            <li>Designed CRUD workflows with clear task assignments and documented collaboration steps.</li>
+            <li>Implemented audit history to capture modifications with timestamps for accountability.</li>
+            <li>Applied HTML/CSS front-end paired with Django + SQLite and GitHub-driven version control.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Education</p>
+          <h3>Global perspective with a systems mindset.</h3>
+        </div>
+        <p class="muted">Blending information systems, AI, and analytics to design solutions that travel well across cultures and industries.</p>
+      </div>
+      <div class="education-grid">
+        <div class="panel">
+          <div class="edu-heading">
+            <h4>Binghamton University, SUNY</h4>
+            <span class="label">B.S. Information Systems · Expected May 2026</span>
+          </div>
+          <p class="muted">Thomas J. Watson College of Engineering and Applied Science</p>
+          <p class="eyebrow">Coursework</p>
+          <p>Data Analytics, Data Mining, AI-Driven Decision Support Systems, Tools for Data Science, Information Systems Security.</p>
+        </div>
+        <div class="panel">
+          <div class="edu-heading">
+            <h4>Vellore Institute of Technology, Bangalore</h4>
+            <span class="label">Postgraduate Program · Aug 2023 – Jul 2024 · CGPA: 3.36/4.00</span>
+          </div>
+          <p class="eyebrow">Coursework</p>
+          <p>Machine Learning, Data Mining, Data Visualization & Communication, Fundamentals of AI, Big Data Analytics, Deep Learning.</p>
+        </div>
+        <div class="panel">
+          <div class="edu-heading">
+            <h4>New Shores International College, Bangalore</h4>
+            <span class="label">BCA · Nov 2020 – Aug 2023 · CGPA: 7.29/10.0</span>
+          </div>
+          <p class="eyebrow">Coursework</p>
+          <p>Data Structures & Algorithms, Database Management Systems, Computer Networks, Digital Electronics, Discrete Mathematics, Visual Programming, Software Engineering, System Programming, Web Programming.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Toolkit</p>
+          <h3>End-to-end data, ML, and product delivery.</h3>
+        </div>
+        <p class="muted">From Python notebooks to production APIs, I bridge data foundations with user-facing experiences.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="panel">
+          <h4>Languages</h4>
+          <div class="tag-cloud">
+            <span>Python</span><span>R</span><span>TypeScript</span><span>Rust</span><span>Go</span><span>SQL</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Data & Analytics</h4>
+          <div class="tag-cloud">
+            <span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>TensorFlow</span><span>PyTorch</span><span>Power BI</span><span>Tableau</span><span>Matplotlib</span><span>Seaborn</span><span>Plotly</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Platforms & Tools</h4>
+          <div class="tag-cloud">
+            <span>Hadoop</span><span>MongoDB</span><span>Spark</span><span>PostgreSQL</span><span>RESTful APIs</span><span>JSON</span><span>PyMongo</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Frameworks</h4>
+          <div class="tag-cloud">
+            <span>FastAPI</span><span>Flask</span><span>Node.js</span><span>Django</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Design Principles</h4>
+          <div class="tag-cloud">
+            <span>OOP</span><span>Functional Programming</span><span>API Development</span><span>Data Pipeline Design</span><span>Accessible dashboards</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Certifications</h4>
+          <div class="tag-cloud">
+            <span>Cloud Fundamentals</span><span>Data Science</span><span>Introduction to Artificial Intelligence</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leadership">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Leadership</p>
+          <h3>Creating belonging while teams build.</h3>
+        </div>
+        <p class="muted">Intentional communities make great work possible. I invest in guidance, clarity, and inclusive collaboration.</p>
+      </div>
+      <div class="panel">
+        <div class="edu-heading">
+          <h4>Leadership Volunteer · International Student Orientation</h4>
+          <span class="label">Jan 2025 – Aug 2025</span>
+        </div>
+        <p>Welcomed incoming students, fostered teamwork, and guided engagement activities to create a supportive start for peers navigating a new country.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-shell">
+      <div>
+        <p class="eyebrow">Let’s build the future of data products.</p>
+        <p class="muted">I’m ready to design and deliver analytics, ML, and decision-support experiences that feel effortless to use.</p>
+      </div>
+      <div class="footer-actions">
+        <a class="button primary" href="mailto:dgottam@binghamton.edu">Email me</a>
+        <a class="button ghost" href="https://www.linkedin.com/in/deepika-gottam" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
       </div>
     </div>
-  </section>
-
-  <section id="experience">
-    <div class="card">
-      <h3>Research Intern — Boundless Impact Research & Analytics</h3>
-      <div class="meta">Remote · Sep 2025 – Present</div>
-      <ul>
-        <li>Prepared and structured datasets for impact investment research</li>
-        <li>Built analytical dashboards and visual reports</li>
-        <li>Integrated quantitative insights into data-driven proposals</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="grid">
-      <div class="card">
-        <h3>HR Analytics Dashboard</h3>
-        <div class="meta">Power BI · Analytics</div>
-        <p>Interactive HR dashboard analyzing attrition, salary trends, and workforce demographics.</p>
-        <a class="project-link" href="#">GitHub →</a>
-      </div>
-
-      <div class="card">
-        <h3>Loan Approval Prediction</h3>
-        <div class="meta">ML · REST API</div>
-        <p>Ensemble ML system for automated credit risk assessment deployed via API.</p>
-        <a class="project-link" href="#">GitHub →</a>
-      </div>
-
-      <div class="card">
-        <h3>Inventory Management System</h3>
-        <div class="meta">Django · Web App</div>
-        <p>Inventory platform with audit trails and version tracking.</p>
-        <a class="project-link" href="#">GitHub →</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="leadership">
-    <div class="card">
-      <h3>Leadership Volunteer — International Student Orientation</h3>
-      <div class="meta">2025</div>
-      <p>Supported incoming international students and facilitated engagement during orientation programs.</p>
-    </div>
-  </section>
-</main>
-
-<footer>
-  © 2025 Deepika Gottam · Designed & Built with HTML, CSS & JavaScript
-</footer>
-
-<script>
-  function showSection(id) {
-    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    event.target.classList.add('active');
-  }
-</script>
-
+    <p class="footnote">© 2025 Deepika Gottam · Designed for clarity, built for impact.</p>
+  </footer>
 </body>
 </html>
