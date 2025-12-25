@@ -1,14 +1,13 @@
 :root {
-  --bg: #edf2ff;
-  --bg-soft: #f7f9ff;
-  --panel: rgba(255, 255, 255, 0.9);
-  --panel-strong: rgba(255, 255, 255, 0.8);
-  --text: #0d1027;
-  --muted: #4e5771;
-  --accent: #5b6cff;
-  --accent-2: #95d5ff;
-  --border: rgba(13, 16, 39, 0.08);
-  --glow: rgba(91, 108, 255, 0.18);
+  --bg: #040509;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-strong: rgba(255, 255, 255, 0.12);
+  --text: #e8e9ec;
+  --muted: #b2b7c5;
+  --accent: #c6f36c;
+  --accent-2: #9a7bff;
+  --border: rgba(255, 255, 255, 0.12);
+  --glow: rgba(198, 243, 108, 0.25);
   --radius: 18px;
 }
 
@@ -21,7 +20,9 @@
 body {
   font-family: 'Inter', sans-serif;
   color: var(--text);
-  background: var(--bg);
+  background: radial-gradient(circle at 10% 20%, rgba(154, 123, 255, 0.18), transparent 30%),
+              radial-gradient(circle at 85% 15%, rgba(198, 243, 108, 0.14), transparent 25%),
+              var(--bg);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -35,8 +36,7 @@ a {
 }
 
 .bg-canvas,
-.bg-grid,
-.bg-motion {
+.bg-grid {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -44,26 +44,17 @@ a {
 }
 
 .bg-canvas {
-  background: radial-gradient(1100px 900px at 20% 10%, rgba(91, 108, 255, 0.20), transparent 50%),
-              radial-gradient(900px 900px at 80% 0%, rgba(149, 213, 255, 0.28), transparent 45%),
-              radial-gradient(700px 700px at 50% 80%, rgba(255, 255, 255, 0.5), transparent 55%);
-  filter: blur(70px);
+  background: radial-gradient(900px 900px at 20% 10%, rgba(154, 123, 255, 0.15), transparent 50%),
+              radial-gradient(700px 700px at 90% 0%, rgba(198, 243, 108, 0.2), transparent 45%),
+              radial-gradient(500px 500px at 50% 80%, rgba(255, 255, 255, 0.05), transparent 50%);
+  filter: blur(60px);
 }
 
 .bg-grid {
-  background-image: linear-gradient(rgba(13, 16, 39, 0.05) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(13, 16, 39, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 120px 120px;
-  opacity: 0.45;
-}
-
-.bg-motion {
-  background: radial-gradient(circle at 20% 20%, rgba(91, 108, 255, 0.14) 0, transparent 36%),
-              radial-gradient(circle at 80% 30%, rgba(149, 213, 255, 0.12) 0, transparent 32%),
-              conic-gradient(from 90deg at 50% 50%, rgba(91, 108, 255, 0.12), rgba(149, 213, 255, 0.06), rgba(91, 108, 255, 0.12));
-  background-size: 160% 160%;
-  animation: drift 18s ease-in-out infinite alternate;
-  mix-blend-mode: screen;
+  opacity: 0.35;
 }
 
 .topbar {
@@ -76,9 +67,8 @@ a {
   gap: 1.2rem;
   padding: 18px 32px;
   backdrop-filter: blur(12px);
-  background: linear-gradient(90deg, rgba(255,255,255,0.94), rgba(255,255,255,0.86));
+  background: linear-gradient(90deg, rgba(4,5,9,0.82), rgba(4,5,9,0.6));
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 10px 30px rgba(13, 16, 39, 0.08);
 }
 
 .logo-mark {
@@ -122,7 +112,7 @@ a {
 .nav-links a:hover {
   color: var(--text);
   border-color: var(--border);
-  box-shadow: 0 0 0 6px rgba(91, 108, 255, 0.08);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.06);
 }
 
 .contact-meta {
@@ -141,57 +131,8 @@ main {
   padding: 30px 24px 90px;
 }
 
-.intro-screen {
-  min-height: calc(100vh - 78px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 120px 20px 60px;
-  position: relative;
-}
-
-.intro-inner {
-  max-width: 720px;
-  display: grid;
-  gap: 14px;
-}
-
-.intro-inner h1 {
-  font-size: clamp(2.6rem, 4vw, 3.4rem);
-  letter-spacing: -0.5px;
-}
-
-.intro-title {
-  color: var(--muted);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.intro-tagline {
-  font-size: 1.1rem;
-  color: #1f2540;
-}
-
-.scroll-cue {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin: 10px auto 0;
-  padding: 10px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--panel);
-  color: var(--muted);
-  box-shadow: 0 10px 30px rgba(13, 16, 39, 0.08);
-  animation: float 2.4s ease-in-out infinite;
-}
-
 .hero {
   padding: 48px 0 24px;
-  scroll-margin-top: 90px;
 }
 
 .hero-grid {
@@ -271,7 +212,7 @@ main {
 .chip {
   padding: 8px 12px;
   border-radius: 10px;
-  background: rgba(13, 16, 39, 0.04);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border);
   font-size: 0.9rem;
   color: var(--muted);
@@ -287,12 +228,12 @@ main {
 .stat-card,
 .timeline-card,
 .project-card {
-  background: linear-gradient(140deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.86));
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 20px;
-  box-shadow: 0 20px 50px rgba(13, 16, 39, 0.12);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
 }
 
 .stat-card h3 {
@@ -310,8 +251,8 @@ main {
 }
 
 .mini-stat {
-  background: rgba(91, 108, 255, 0.08);
-  border: 1px solid rgba(91, 108, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px;
 }
@@ -369,7 +310,7 @@ main {
 .tag-cloud span {
   padding: 8px 12px;
   border-radius: 10px;
-  background: rgba(13, 16, 39, 0.04);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--text);
   border: 1px solid var(--border);
   font-size: 0.92rem;
@@ -407,6 +348,7 @@ main {
   display: grid;
   gap: 8px;
   color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .project-card h4 {
@@ -467,20 +409,6 @@ footer {
   margin-top: 12px;
   color: var(--muted);
   font-size: 0.92rem;
-}
-
-@keyframes drift {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-6%, 4%, 0);
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
 }
 
 @media (max-width: 960px) {
